@@ -49,17 +49,27 @@ There are two scripts which are named `KMeans_Evaluation.m` and `Hierarchichal_E
 
 * *`KMeans_Evaluation.m`*   parameter settings 
     + *`data`* : data
+      + ``` load data ``` 
     + *`DistanceKMeans`* : Distance Type for *k-means* clustering *`(Table2)`* 
+      + ```
+        DistanceKMeans = DistKMeans;
+        ```
     + *`Kmax`* : Maximum Number of Clusters
+      + ```
+        Kmax = 6; % Maximum Number of Cluster
+        clust = zeros(size(meas,1),Kmax);
+        for k=1:Kmax
+           clust(:,k) = kmeans(data,k,'distance',DistanceKMeans);
+        end
+        ```
     + *`CVI`* : Select form *`(Table1)`*
-    
-```code
-clust = kmeans(data,Kmax,'distance',DistanceKMeans);             
-``` 
-```code
-eval = evalcvi(clust,CVI, data);
-``` 
-
+      + ``` 
+        %% Select CVI
+        CVI = Select_CVI_KMeans;
+        % Evaluation of the clustering solutions
+        eva = evalcvi(clust,CVI, meas);
+        ``` 
+        
 # *`Table2`*
 |No.|    Distance |
 |-- | ------------|
@@ -76,21 +86,39 @@ Multiple_Result = Do_Multiple(CVIs,clust,data);
 ``` 
 Also it's possible to visualize the reuslt automatically.
 
+-----------
 
 
 * *`Hierarchichal_Evaluation.m`*   parameter settings
+    + *`data`* : data
+      + ``` load data ``` 
     + *`HierarchichalMethod`* : Method for *Hierarchical* Cluster Tree *`(Table3)`* 
+      + ```code
+         Z = linkage(data, HierarchichalMethod);
+        ```
     + *`Kmax`* : Maximum Number of Clusters
+      + ```code
+        Kmax = 6; % Maximum Number of Cluster
+        for k=1:Kmax
+        clust(:,k) = cluster(Z, 'maxclust', k);
+        end
+        ``` 
     + *`DistanceType`* : Type of pairwise distance between two sets of observations *`(Table4)`* 
+      +  ```code
+          DistanceType = Distance_PDIST2;
+          DXX = pdist2(data,data,DistanceType);
+         ``` 
+     + *`CVI`* : Select form *`(Table1)`* 
+       +  ```code
+           CVI = Select_CVI_Hierarchichal;
+           eva = evalcvi(clust,CVI, DXX);
+          ``` 
+If you wish to compare multiple CVIs,run following code
+```
+CVIs = Select_Multiple_CVI_Hierarchichal;
+Multiple_Result = Do_Multiple(CVIs,clust,DXX);
+```
     
-```code
-Z = linkage(data, HierarchichalMethod);
-``` 
-``` 
-for k=1:Kmax
-    clust(:,k) = cluster(Z, 'maxclust', k);
-end
-``` 
 
 # *`Table3`*
 |No.|  Method  |
@@ -104,6 +132,14 @@ end
 
 # *`Table4`*
 
+|                  |            |
+| -----------------| -----------|
+|    euclidean     | seuclidean |
+| squaredeuclidean | cityblock  |
+|    minkowski     |  jaccard   |
+|   chebychev      | mahalanobis|
+|    correlation   |   cosine   |
+|    spearman      |  hamming   |
 
 
 
