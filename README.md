@@ -1,50 +1,79 @@
-# Auto-CVI-Tool
+# *`Auto-CVI-Tool`*
 Automatic toolbox for Cluster Validity Index(CVI)
 
 A cluster analysis involves identifying the optimal number and natural division of clusters through automatic clustering. A cluster validity index (CVI) can be used to estimate the number of clusters with relative ease. Several cluster solutions have been proposed in the literature in terms of intra-cluster cohesiveness and inter-cluster separation. In spite of this, it is crucial to identify the situations where these CVIs work well and their limitations.
-To estimate the number of clusters, this toolbox presents 22 robust CVIs. It is extremely user-friendly and does not require any coding knowledge.
-Without writing a single line of code, it is possible to compare 22 CVIs and visualize the results in a comparable manner.
-As soon as the data is loaded, all parameters are automatically provided, and the CVIs can be compared without any additional programming.
-It is important to note that one section of this [paper](https://dl.acm.org/doi/10.1145/3449639.3459341) was used in the development of this toolbox, and if you use any part of it, please reference both the reference paper and me.
+To estimate the number of clusters, this toolbox presents 28 robust CVIs. It is extremely user-friendly and does not require any coding knowledge.
+Without writing a single line of code, it is possible to compare 28 CVIs and visualize the results in a comparable manner.
+When the data is loaded, all parameters will be automatically selected by the user, or the default setting will be used, and the CVIs can be compared without any additional programming.
+It is important to note that one section of this [paper](https://dl.acm.org/doi/10.1145/3449639.3459341) was used in the development of this toolbox,I would appreciate a citation to both the reference article and to myself if you use any part of this toolbox.
 
 
-A cluster validity index (CVI) estimates the quality of a clustering solution by defining a relationship between intracluster cohesiveness (within-group scatter) and intercluster separation (between-group scatter). Table 1 summarizes the 22 CVIs examined in this toolbox. Each CVI is identified by an acronym in the table, which is followed by an up arrow `↑` or a down arrow `↓` to indicate whether the index is maximized or minimized, respectively.
+A cluster validity index (CVI) estimates the quality of a clustering solution by defining a relationship between intracluster cohesiveness (within-group scatter) and intercluster separation (between-group scatter). *`Table1`* summarizes the 22 CVIs examined in this toolbox. Each CVI is identified by an acronym in the table, which is followed by an up arrow `↑` or a down arrow `↓` to indicate whether the index is maximized or minimized, respectively.
 
-  |       Index       |  Full Name & Accronym                                                               | Min\Max |
-  |-------------------|-------------------------------------------------------------------------------------|---------|
-  |     chindex       | Calinski-Harabasz index (ch).                                                       |         |
-  |     cindex        | C index (cind).                                                                     |         |
-  |     copindex      | COP index (cop).                                                                    |         |
-  |     csindex       | CS index (cs).                                                                      |         |
-  |     cvddindex     | Index based on density-involved distance (cvdd).                                    |         |
-  |     cvnnindex     | Index based on nearest neighbors (cvnn).                                            |         |
-  |     dbindex       | Davies-Bouldin index (db).                                                          |         |
-  |     db2index      | Enhanced Davies-Bouldin index (db2).                                                |         |
-  |     dbcvindex     | Density-based index (dbcv).                                                         |         |
-  |     dunnindex     | Dunn index (dunn).                                                                  |         |
-  |     gd31index     | Dunn index variant 3,1 (gd31).                                                      |         |
-  |     gd33index     | Dunn index variant 3,3 (gd33).                                                      |         |
-  |     gd41index     | Dunn index variant 4,1 (gd41).                                                      |         |
-  |     gd43index     | Dunn index variant 4,3 (gd43).                                                      |         |
-  |     gd51index     | Dunn index variant 5,1 (gd51).                                                      |         |
-  |     gd53index     | Dunn index variant 5,3 (gd53).                                                      |         |
-  |     lccvindex     | Index based on local cores (lccv).                                                  |         |
-  |     pbmindex      | PBM index (pbm).                                                                    |         |
-  |     sdbwindex     | S_Dbw validity index (sdbw).                                                        |         |
-  |     sfindex       | Score Function index (sf).                                                          |         |
-  |     silindex      | Silhouette index (sil).                                                             |         |
-  |     ssddindex     | Index based on shapes, sizes, densities, and separation distances (ssdd).           |         |
-  |     svindex       | SV index (sv).                                                                      |         |
-  |     symindex      | Symmetry index (sym).                                                               |         |
-  |     symdbindex    | Davies-Bouldin index based on symmetry (sdb).                                       |         |
-  |     symdunnindex  | Dunn index based on symmetry (sdi).                                                 |         |
-  |     wbindex       | WB index (wb).                                                                      |         |
-  |    xbindex        | Xie-Beni index (xb).                                                                |         |
+# *`Table1`*
+no. |       Index       |  Full Name & Accronym                                                               |Min\Max|
+----|-------------------|-------------------------------------------------------------------------------------|-------|
+  1 |     chindex       | Calinski-Harabasz index (ch).                                                       |  `↑`  |
+  2 |     cindex        | C index (cind).                                                                     |  `↓`  |
+  3 |     copindex      | COP index (cop).                                                                    |  `↓`  |
+  4 |     csindex       | CS index (cs).                                                                      |  `↓`  |
+  5 |     cvddindex     | Index based on density-involved distance (cvdd).                                    |  `↑`  |
+  6 |     cvnnindex     | Index based on nearest neighbors (cvnn).                                            |  `↓`  |
+  7 |     dbindex       | Davies-Bouldin index (db).                                                          |  `↓`  |
+  8 |     db2index      | Enhanced Davies-Bouldin index (db2).                                                |  `↓`  |
+  9 |     dbcvindex     | Density-based index (dbcv).                                                         |  `↑`  |
+ 10 |     dunnindex     | Dunn index (dunn).                                                                  |  `↑`  |
+ 11 |     gd31index     | Dunn index variant 3,1 (gd31).                                                      |  `↑`  |
+ 12 |     gd33index     | Dunn index variant 3,3 (gd33).                                                      |  `↑`  |
+ 13 |     gd41index     | Dunn index variant 4,1 (gd41).                                                      |  `↑`  |
+ 14 |     gd43index     | Dunn index variant 4,3 (gd43).                                                      |  `↑`  |
+ 15 |     gd51index     | Dunn index variant 5,1 (gd51).                                                      |  `↑`  |
+ 16 |     gd53index     | Dunn index variant 5,3 (gd53).                                                      |  `↑`  |
+ 17 |     lccvindex     | Index based on local cores (lccv).                                                  |  `↑`  |
+ 18 |     pbmindex      | PBM index (pbm).                                                                    |  `↑`  |
+ 19 |     sdbwindex     | S_Dbw validity index (sdbw).                                                        |  `↓`  |
+ 20 |     sfindex       | Score Function index (sf).                                                          |  `↑`  |
+ 21 |     silindex      | Silhouette index (sil).                                                             |  `↑`  |
+ 22 |     ssddindex     | Index based on shapes, sizes, densities, and separation distances (ssdd).           |  `↓`  |
+ 23 |     svindex       | SV index (sv).                                                                      |  `↑`  |
+ 24 |     symindex      | Symmetry index (sym).                                                               |  `↑`  |
+ 25 |     symdbindex    | Davies-Bouldin index based on symmetry (sdb).                                       |  `↓`  |
+ 26 |     symdunnindex  | Dunn index based on symmetry (sdunn).                                               |  `↑`  |
+ 27 |     wbindex       | WB index (wb).                                                                      |  `↓`  |
+ 28 |    xbindex        | Xie-Beni index (xb).                                                                |  `↓`  |
   
  -----------------------------------------------------------------------------------------------------------------------------
 
+## Usage
+There are two scripts which are named `KMeans_Evaluation.m` and `Hierarchichal_Evaluation.m`; they evalute the clustering based on `KMeans` and `Hierarchichal Clustering` resepctively.
 
+* *`KMeans_Evaluation.m`*   : parameter settings
+    + *`DistanceKMeans`* : Distance Type for *k-means* clustering ( *`Table2`* )
+    + *`Kmax`* : Maximum Number of Clusters
+    
+```code
+Clust = kmeans(data,Kmax,'distance',DistanceKMeans);             
+``` 
+|No.|    Distance |
+|-- | ------------|
+| 2 | sqeuclidean |
+| 3 | cityblock   |
+| 4 | hamming     |
+| 5 | correlation |
+| 6 | cosine      | 
 
+* *`Hierarchichal_Evaluation.m`*   : parameter settings
+    + *`HierarchichalMethod`* : Method for *Hierarchical* Cluster Tree
+|No.|  Method  |
+|-- | ---------|
+| 2 | average  |
+| 3 | centroid |
+| 4 | complete |
+| 5 | median   |
+| 6 | single   | 
+| 7 | ward     |
+
+## Refrences
 
 ```
 A. José-García and W. Gómez-Flores.
