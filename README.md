@@ -47,13 +47,20 @@ no. |       Index       |  Full Name & Accronym                                 
 ## Usage
 There are two scripts which are named `KMeans_Evaluation.m` and `Hierarchichal_Evaluation.m`; they evalute the clustering based on `KMeans` and `Hierarchichal Clustering` resepctively.
 
-* *`KMeans_Evaluation.m`*   : parameter settings
-    + *`DistanceKMeans`* : Distance Type for *k-means* clustering ( *`Table2`* )
+* *`KMeans_Evaluation.m`*   parameter settings 
+    + *`data`* : data
+    + *`DistanceKMeans`* : Distance Type for *k-means* clustering *`(Table2)`* 
     + *`Kmax`* : Maximum Number of Clusters
+    + *`CVI`* : Select form *`(Table1)`*
     
 ```code
-Clust = kmeans(data,Kmax,'distance',DistanceKMeans);             
+clust = kmeans(data,Kmax,'distance',DistanceKMeans);             
 ``` 
+```code
+eval = evalcvi(clust,CVI, data);
+``` 
+
+# *`Table2`*
 |No.|    Distance |
 |-- | ------------|
 | 2 | sqeuclidean |
@@ -62,8 +69,30 @@ Clust = kmeans(data,Kmax,'distance',DistanceKMeans);
 | 5 | correlation |
 | 6 | cosine      | 
 
-* *`Hierarchichal_Evaluation.m`*   : parameter settings
-    + *`HierarchichalMethod`* : Method for *Hierarchical* Cluster Tree
+You may compare multiple CVIs simultaneously by executing the following code:
+```code
+CVIs = Select_Multiple_CVI_KMeans;
+Multiple_Result = Do_Multiple(CVIs,clust,data);
+``` 
+Also it's possible to visualize the reuslt automatically.
+
+
+
+* *`Hierarchichal_Evaluation.m`*   parameter settings
+    + *`HierarchichalMethod`* : Method for *Hierarchical* Cluster Tree *`(Table3)`* 
+    + *`Kmax`* : Maximum Number of Clusters
+    + *`DistanceType`* : Type of pairwise distance between two sets of observations *`(Table4)`* 
+    
+```code
+Z = linkage(data, HierarchichalMethod);
+``` 
+``` 
+for k=1:Kmax
+    clust(:,k) = cluster(Z, 'maxclust', k);
+end
+``` 
+
+# *`Table3`*
 |No.|  Method  |
 |-- | ---------|
 | 2 | average  |
@@ -72,6 +101,11 @@ Clust = kmeans(data,Kmax,'distance',DistanceKMeans);
 | 5 | median   |
 | 6 | single   | 
 | 7 | ward     |
+
+# *`Table4`*
+
+
+
 
 ## Refrences
 
