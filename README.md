@@ -44,7 +44,8 @@ no. |       Index       |  Full Name & Accronym                                 
   
  -----------------------------------------------------------------------------------------------------------------------------
 
-## Usage
+# *`How to Use?`*
+
 There are two scripts which are named `KMeans_Evaluation.m` and `Hierarchichal_Evaluation.m`; they evalute the clustering based on `KMeans` and `Hierarchichal Clustering` resepctively.
 
 * *`KMeans_Evaluation.m`*   parameter settings 
@@ -140,6 +141,12 @@ Multiple_Result = Do_Multiple(CVIs,clust,DXX);
 |   chebychev      | mahalanobis|
 |    correlation   |   cosine   |
 |    spearman      |  hamming   |
+
+
+
+# *`Visualization`*
+
+![autocvitool](https://user-images.githubusercontent.com/96732467/194291380-1e5a8489-9ed1-436e-8b9f-495ae298022e.jpg)
 
 
 
