@@ -153,10 +153,12 @@ Multiple_Result = Do_Multiple(CVIs,clust,DXX);
 ## Refrences
 
 ```
-A. José-García and W. Gómez-Flores.
-A survey of cluster validity indices for automatic data clustering using differential evolution.
-The Genetic and Evolutionary Computation Conference* (GECCO '21), Lille, France, 2021.
-DOI: 10.1145/3449639.3459341
+(1) A. José-García and W. Gómez-Flores.
+    A survey of cluster validity indices for automatic data clustering using differential evolution.
+    The Genetic and Evolutionary Computation Conference* (GECCO '21), Lille, France, 2021.
+    DOI: 10.1145/3449639.3459341
+(2) Farhad Abedinzadeh (2022). Auto-CVI-Tool (https://github.com/farhadabedinzadeh/Auto-CVI-Tool/releases/tag/v1.0.0),
+    GitHub. Retrieved October 6, 2022.
 ```
 ## Further Question
 [![Mail](https://img.shields.io/badge/Gmail-farhaad.abedinzadeh%40gmail.com-critical?style=flat-square&logo=gmail)]()
