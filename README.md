@@ -58,7 +58,7 @@ There are two scripts which are named `KMeans_Evaluation.m` and `Hierarchichal_E
     + *`Kmax`* : Maximum Number of Clusters
       + ```
         Kmax = 6; % Maximum Number of Cluster
-        clust = zeros(size(meas,1),Kmax);
+        clust = zeros(size(data,1),Kmax);
         for k=1:Kmax
            clust(:,k) = kmeans(data,k,'distance',DistanceKMeans);
         end
@@ -68,7 +68,7 @@ There are two scripts which are named `KMeans_Evaluation.m` and `Hierarchichal_E
         %% Select CVI
         CVI = Select_CVI_KMeans;
         % Evaluation of the clustering solutions
-        eva = evalcvi(clust,CVI, meas);
+        eva = evalcvi(clust,CVI, data);
         ``` 
         
 # *`Table2`*
