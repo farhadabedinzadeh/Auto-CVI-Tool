@@ -1,7 +1,7 @@
 # *`Auto-CVI-Tool`*
 An Automatic Toolbox for Cluster Validity Indexes (CVI)
 
-A cluster analysis involves identifying the optimal number and natural division of clusters through automatic clustering. A cluster validity index (CVI) can be used to estimate the number of clusters with relative ease. Several cluster solutions have been proposed in the literature in terms of intra-cluster cohesiveness and inter-cluster separation. In spite of this, it is crucial to identify the situations where these CVIs work well and their limitations.
+A cluster analysis involves identifying the optimal number and natural division of clusters through automatic clustering. A cluster validity index (CVI) is a simple technique for estimating the number of clusters. Several cluster solutions have been proposed in the literature in terms of intra-cluster cohesiveness and inter-cluster separation. In spite of this, it is crucial to identify the situations where these CVIs work well and their limitations.
 To estimate the number of clusters, this toolbox presents 28 robust CVIs. It is extremely user-friendly and does not require any coding knowledge.
 Without writing a single line of code, it is possible to compare 28 CVIs and visualize the results in a comparable manner.
 When the data is loaded, all parameters will be automatically selected by the user, or the default setting will be used, and the CVIs can be compared without any additional programming.
