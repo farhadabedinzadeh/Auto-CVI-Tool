@@ -161,4 +161,4 @@ Multiple_Result = Do_Multiple(CVIs,clust,DXX);
     GitHub. Retrieved October 6, 2022.
 ```
 ## Further Question
-[![Mail](https://img.shields.io/badge/Gmail-farhaad.abedinzadeh%40gmail.com-critical?style=flat-square&logo=gmail)]()
+[![Mail](https://img.shields.io/badge/Gmail-farhaad.abedinzade%40gmail.com-critical?style=flat-square&logo=gmail)]()
